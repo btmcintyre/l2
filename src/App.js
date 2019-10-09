@@ -1,26 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Provider } from 'react-redux';
+import '../node_modules/carbon-react/lib/utils/css/css.js';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import Counter from './modules/counter/screens/counter-s.js';
+import Table   from './modules/table/screens/table-s.js';
+import Report  from './modules/report/screens/report-s.js';
+
+import store from './redux_setup/store.js';
+
+
+const App = () => (
+  <div>
+    <Provider store={store}>
+      <Counter/>
+      <div>----------------------------------------------------------------------------------------------------</div>
+      <Table/>
+      <div>----------------------------------------------------------------------------------------------------</div>
+      <Report/>
+    </Provider>
+ 
+  </div>
+);
 
 export default App;
